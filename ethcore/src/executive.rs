@@ -23,7 +23,7 @@ use types::executed::CallType;
 use env_info::EnvInfo;
 use error::ExecutionError;
 use evm::{self, Ext, Finalize, CreateContractAddress, FinalizationResult, ReturnData, CleanDustMode};
-use externalities::*;
+use parity-externalities::externalities::*;
 use trace::{FlatTrace, Tracer, NoopTracer, ExecutiveTracer, VMTrace, VMTracer, ExecutiveVMTracer, NoopVMTracer};
 use transaction::{Action, SignedTransaction};
 use crossbeam;

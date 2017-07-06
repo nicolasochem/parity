@@ -16,15 +16,15 @@
 
 //! Transaction Execution environment.
 use util::*;
-use action_params::{ActionParams, ActionValue};
-use state::{Backend as StateBackend, State, Substate, CleanupMode};
-use engines::Engine;
-use env_info::EnvInfo;
-use executive::*;
-use evm::{self, Schedule, Ext, ContractCreateResult, MessageCallResult, CreateContractAddress, ReturnData};
-use types::executed::CallType;
-use types::transaction::UNSIGNED_SENDER;
-use trace::{Tracer, VMTracer};
+use ethcore::action_params::{ActionParams, ActionValue};
+use ethcore::state::{Backend as StateBackend, State, Substate, CleanupMode};
+use ethcore::engines::Engine;
+use ethcore::env_info::EnvInfo;
+use ethcore::executive::*;
+use ethcore::evm::{self, Schedule, Ext, ContractCreateResult, MessageCallResult, CreateContractAddress, ReturnData};
+use ethcore::types::executed::CallType;
+use ethcore::types::transaction::UNSIGNED_SENDER;
+use ethcore::trace::{Tracer, VMTracer};
 
 /// Policy for handling output data on `RETURN` opcode.
 pub enum OutputPolicy<'a, 'b> {
@@ -322,7 +322,7 @@ impl<'a, T: 'a, V: 'a, B: 'a, E: 'a> Ext for Externalities<'a, T, V, B, E>
 	}
 
 	fn log(&mut self, topics: Vec<H256>, data: &[u8]) -> evm::Result<()> {
-		use log_entry::LogEntry;
+		use ethcore::log_entry::LogEntry;
 
 		if self.static_flag {
 			return Err(evm::Error::MutableCallInStaticContext);
@@ -392,14 +392,14 @@ impl<'a, T: 'a, V: 'a, B: 'a, E: 'a> Ext for Externalities<'a, T, V, B, E>
 #[cfg(test)]
 mod tests {
 	use util::*;
-	use engines::Engine;
-	use env_info::EnvInfo;
-	use evm::Ext;
-	use state::{State, Substate};
-	use tests::helpers::*;
+	use ethcore::engines::Engine;
+	use ethcore::env_info::EnvInfo;
+	use ethcore::evm::Ext;
+	use ethcore::state::{State, Substate};
+	use ethcore::tests::helpers::*;
 	use super::*;
-	use trace::{NoopTracer, NoopVMTracer};
-	use types::executed::CallType;
+	use ethcore::trace::{NoopTracer, NoopVMTracer};
+	use ethcore::types::executed::CallType;
 
 	fn get_test_origin() -> OriginInfo {
 		OriginInfo {

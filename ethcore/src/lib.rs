@@ -97,6 +97,7 @@ extern crate lru_cache;
 extern crate native_contracts;
 extern crate num_cpus;
 extern crate num;
+extern crate parity_externalities;
 extern crate rand;
 extern crate rlp;
 extern crate rustc_serialize;
@@ -148,10 +149,9 @@ mod pod_account;
 mod state_db;
 mod account_db;
 mod builtin;
-mod executive;
-mod externalities;
+pub mod executive;
 mod blockchain;
-mod types;
+pub mod types;
 mod factory;
 
 #[cfg(test)]

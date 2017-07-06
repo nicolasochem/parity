@@ -1609,6 +1609,7 @@ dependencies = [
  "num_cpus 1.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "number_prefix 0.2.5 (registry+https://github.com/rust-lang/crates.io-index)",
  "parity-dapps 1.7.0",
+ "parity-externalities 1.7.0",
  "parity-hash-fetch 1.7.0",
  "parity-ipfs-api 1.7.0",
  "parity-local-store 0.1.0",
@@ -1677,6 +1678,16 @@ dependencies = [
  "quasi_codegen 0.32.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "syntex 0.58.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "syntex_syntax 0.58.0 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "parity-externalities"
+version = "1.7.0"
+dependencies = [
+ "ethcore 1.7.0",
+ "ethcore-ipc-codegen 1.7.0",
+ "ethcore-util 1.7.0",
+ "log 0.3.7 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
