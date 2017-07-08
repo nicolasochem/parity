@@ -42,7 +42,7 @@ ethcore-stratum = { path = "stratum" }
 ethkey = { path = "ethkey" }
 rlp = { path = "util/rlp" }
 rpc-cli = { path = "rpc_cli" }
-parity-externalities = { path = "parity-externalities" }
+parity-externalities = { path = "externalities" }
 parity-hash-fetch = { path = "hash-fetch" }
 parity-ipfs-api = { path = "ipfs" }
 parity-local-store = { path = "local-store" }
@@ -105,4 +105,4 @@ lto = false
 panic = "abort"
 
 [workspace]
-members = ["ethstore/cli", "ethkey/cli", "evmbin", "parity-externalities", "executive"]
+members = ["ethstore/cli", "ethkey/cli", "evmbin", "externalities", "executive"]

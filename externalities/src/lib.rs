@@ -16,6 +16,8 @@
 
 extern crate ethcore;
 
+extern crate executive;
+
 extern crate ethcore_util as util;
 #[macro_use]
 extern crate log;
