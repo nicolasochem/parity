@@ -105,4 +105,4 @@ lto = false
 panic = "abort"
 
 [workspace]
-members = ["ethstore/cli", "ethkey/cli", "evmbin", "parity-externalities"]
+members = ["ethstore/cli", "ethkey/cli", "evmbin", "parity-externalities", "executive"]

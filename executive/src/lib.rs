@@ -71,88 +71,85 @@
 //!   cargo build --release
 //!   ```
 
-extern crate bit_set;
-extern crate bloomchain;
-extern crate bn;
-extern crate byteorder;
+//extern crate bit_set;
+//extern crate bloomchain;
+//extern crate bn;
+//extern crate byteorder;
 extern crate crossbeam;
-extern crate crypto;
-extern crate env_logger;
-extern crate ethabi;
-extern crate ethash;
-extern crate ethcore_bloom_journal as bloom_journal;
-extern crate ethcore_devtools as devtools;
+//extern crate crypto;
+//extern crate env_logger;
+//extern crate ethabi;
+//extern crate ethash;
+extern crate ethcore;
+//extern crate ethcore_bloom_journal as bloom_journal;
+//extern crate ethcore_devtools as devtools;
 extern crate ethcore_io as io;
-extern crate ethcore_ipc_nano as nanoipc;
-extern crate ethcore_logger;
-extern crate ethcore_stratum;
-extern crate ethjson;
-extern crate ethkey;
-extern crate futures;
-extern crate hardware_wallet;
-extern crate hyper;
-extern crate itertools;
-extern crate linked_hash_map;
-extern crate lru_cache;
-extern crate native_contracts;
-extern crate num_cpus;
-extern crate num;
-extern crate rand;
+extern crate ethcore_util as util;
+//extern crate ethcore_ipc_nano as nanoipc;
+//extern crate ethcore_logger;
+//extern crate ethcore_stratum;
+//extern crate ethjson;
+//extern crate ethkey;
+//extern crate futures;
+//extern crate hardware_wallet;
+//extern crate hyper;
+//extern crate itertools;
+//extern crate linked_hash_map;
+//extern crate lru_cache;
+//extern crate native_contracts;
+//extern crate num_cpus;
+//extern crate num;
+//extern crate parity_externalities;
+//extern crate rand;
 extern crate rlp;
-extern crate rustc_serialize;
-extern crate semver;
-extern crate stats;
-extern crate time;
-extern crate transient_hashmap;
+//extern crate rustc_serialize;
+//extern crate semver;
+//extern crate stats;
+//extern crate time;
+//extern crate transient_hashmap;
 
 #[macro_use]
 extern crate log;
-#[macro_use]
-extern crate ethcore_util as util;
-#[macro_use]
-extern crate lazy_static;
-#[macro_use]
-extern crate ethcore_ipc as ipc;
+
 
 #[cfg(feature = "jit" )]
 extern crate evmjit;
 
 pub extern crate ethstore;
 
-pub mod account_provider;
-pub mod engines;
-pub mod block;
-pub mod client;
-pub mod error;
-pub mod ethereum;
-pub mod header;
-pub mod service;
-pub mod trace;
-pub mod spec;
-pub mod views;
-pub mod pod_state;
-pub mod migrations;
-pub mod miner;
-pub mod snapshot;
-pub mod action_params;
-pub mod db;
-pub mod verification;
-pub mod state;
-pub mod env_info;
-#[macro_use] pub mod evm;
+//pub mod account_provider;
+//pub mod engines;
+//pub mod block;
+//pub mod client;
+//pub mod error;
+//pub mod ethereum;
+//pub mod header;
+//pub mod service;
+//pub mod trace;
+//pub mod spec;
+//pub mod views;
+//pub mod pod_state;
+//pub mod migrations;
+//pub mod miner;
+//pub mod snapshot;
+//pub mod action_params;
+//pub mod db;
+//pub mod verification;
+//pub mod state;
+//pub mod env_info;
+//#[macro_use] pub mod evm;
 
-mod cache_manager;
-mod blooms;
-mod basic_types;
-mod pod_account;
-mod state_db;
-mod account_db;
-mod builtin;
+//mod cache_manager;
+//mod blooms;
+//mod basic_types;
+//mod pod_account;
+//mod state_db;
+//mod account_db;
+//mod builtin;
 pub mod executive;
-pub mod externalities;
-mod blockchain;
-pub mod types;
-mod factory;
+//mod blockchain;
+//pub mod types;
+//mod factory;
 
 #[cfg(test)]
 mod tests;
@@ -160,6 +157,6 @@ mod tests;
 #[cfg(feature="json-tests")]
 mod json_tests;
 
-pub use types::*;
+//pub use types::*;
 pub use executive::contract_address;
-pub use evm::CreateContractAddress;
+pub use ethcore::evm::CreateContractAddress;

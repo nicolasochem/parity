@@ -788,6 +788,22 @@ dependencies = [
 ]
 
 [[package]]
+name = "executive"
+version = "1.7.0"
+dependencies = [
+ "crossbeam 0.2.10 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ethcore 1.7.0",
+ "ethcore-io 1.7.0",
+ "ethcore-ipc 1.7.0",
+ "ethcore-ipc-codegen 1.7.0",
+ "ethcore-util 1.7.0",
+ "ethstore 0.1.0",
+ "lazy_static 0.2.8 (registry+https://github.com/rust-lang/crates.io-index)",
+ "log 0.3.7 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rlp 0.2.0",
+]
+
+[[package]]
 name = "fdlimit"
 version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1687,6 +1703,7 @@ dependencies = [
  "ethcore 1.7.0",
  "ethcore-ipc-codegen 1.7.0",
  "ethcore-util 1.7.0",
+ "executive 1.7.0",
  "log 0.3.7 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
