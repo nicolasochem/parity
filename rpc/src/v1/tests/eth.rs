@@ -15,7 +15,6 @@
 // along with Parity.  If not, see <http://www.gnu.org/licenses/>.
 
 //! rpc integration tests.
-use std::env;
 use std::sync::Arc;
 use std::time::Duration;
 
