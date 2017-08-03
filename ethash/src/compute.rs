@@ -545,7 +545,7 @@ mod test {
 	fn test_get_cache_size() {
 		// https://github.com/ethereum/wiki/wiki/Ethash/ef6b93f9596746a088ea95d01ca2778be43ae68f#data-sizes
 		assert_eq!(16776896usize, get_cache_size(0));
-			assert_eq!(16776896usize, get_cache_size(1));
+		assert_eq!(16776896usize, get_cache_size(1));
 		assert_eq!(16776896usize, get_cache_size(ETHASH_EPOCH_LENGTH - 1));
 		assert_eq!(16907456usize, get_cache_size(ETHASH_EPOCH_LENGTH));
 		assert_eq!(16907456usize, get_cache_size(ETHASH_EPOCH_LENGTH + 1));
