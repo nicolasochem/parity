@@ -529,7 +529,7 @@ fn to_hex(bytes: &[u8]) -> String {
 }
 
 #[cfg(test)]
-mod test {
+mod tests {
 	extern crate tempdir;
 	use super::get_cache_size;
 	use super::get_data_size;
