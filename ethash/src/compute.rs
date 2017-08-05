@@ -530,7 +530,6 @@ fn to_hex(bytes: &[u8]) -> String {
 
 #[cfg(test)]
 mod tests {
-	extern crate tempdir;
 	use super::get_cache_size;
 	use super::get_data_size;
 	use super::ETHASH_EPOCH_LENGTH;
@@ -539,7 +538,7 @@ mod tests {
 	use super::SeedHashCompute;
 	use super::quick_get_difficulty;
 	use std::fs;
-	use self::tempdir::TempDir;
+	use tempdir::TempDir;
 
 	#[test]
 	fn test_get_cache_size() {

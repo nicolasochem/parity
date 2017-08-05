@@ -550,7 +550,6 @@ impl Header {
 
 #[cfg(test)]
 mod tests {
-	extern crate tempdir;
 	use std::str::FromStr;
 	use std::collections::BTreeMap;
 	use std::sync::Arc;
@@ -564,7 +563,7 @@ mod tests {
 	use super::super::{new_morden, new_homestead_test};
 	use super::{Ethash, EthashParams, PARITY_GAS_LIMIT_DETERMINANT, ecip1017_eras_block_reward};
 	use rlp;
-	use self::tempdir::TempDir;
+	use tempdir::TempDir;
 
 	fn test_spec() -> Spec {
 		new_morden(&TempDir::new("").unwrap().path())

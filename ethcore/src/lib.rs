@@ -112,6 +112,9 @@ extern crate bloomable;
 extern crate vm;
 extern crate wasm;
 
+#[cfg(test)]
+extern crate tempdir;
+
 #[macro_use]
 extern crate log;
 #[macro_use]

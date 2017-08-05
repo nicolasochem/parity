@@ -55,6 +55,8 @@ extern crate serde_derive;
 extern crate ethcore_devtools as devtools;
 #[cfg(test)]
 extern crate env_logger;
+#[cfg(test)]
+extern crate tempdir;
 
 
 mod endpoint;

@@ -516,14 +516,13 @@ impl Spec {
 
 #[cfg(test)]
 mod tests {
-	extern crate tempdir;
 	use std::str::FromStr;
 	use util::*;
 	use views::*;
 	use tests::helpers::get_temp_state_db;
 	use state::State;
 	use super::*;
-	use self::tempdir::TempDir;
+	use tempdir::TempDir;
 
 	// https://github.com/paritytech/parity/issues/1840
 	#[test]

@@ -251,8 +251,7 @@ impl Engine for BasicAuthority {
 
 #[cfg(test)]
 mod tests {
-	extern crate tempdir;
-	use self::tempdir::TempDir;
+	use tempdir::TempDir;
 	use std::sync::Arc;
 	use util::*;
 	use block::*;

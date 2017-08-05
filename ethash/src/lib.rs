@@ -23,6 +23,9 @@ extern crate primal;
 extern crate sha3;
 extern crate parking_lot;
 
+#[cfg(test)]
+extern crate tempdir;
+
 #[macro_use]
 extern crate crunchy;
 #[macro_use]
@@ -120,8 +123,7 @@ impl EthashManager {
 
 #[cfg(test)]
 mod test {
-	extern crate tempdir;
-	use self::tempdir::TempDir;
+	use tempdir::TempDir;
 	use super::EthashManager;
 
 	#[test]

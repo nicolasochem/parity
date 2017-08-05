@@ -109,6 +109,9 @@ extern crate heapsize;
 extern crate itertools;
 extern crate ethcore_logger;
 
+#[cfg(test)]
+extern crate tempdir;
+
 #[macro_use]
 extern crate log as rlog;
 

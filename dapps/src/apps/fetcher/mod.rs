@@ -259,14 +259,13 @@ impl<R: URLHint + 'static, F: Fetch> Fetcher for ContentFetcher<F, R> {
 
 #[cfg(test)]
 mod tests {
-	extern crate tempdir;
 	use std::sync::Arc;
 	use util::Bytes;
 	use fetch::{Fetch, Client};
 	use futures::{future, Future, BoxFuture};
 	use hash_fetch::urlhint::{URLHint, URLHintResult};
 	use parity_reactor::Remote;
-	use self::tempdir::TempDir;
+	use tempdir::TempDir;
 
 	use apps::cache::ContentStatus;
 	use endpoint::EndpointInfo;

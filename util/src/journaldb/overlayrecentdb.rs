@@ -454,7 +454,6 @@ mod tests {
 	#![cfg_attr(feature="dev", allow(blacklisted_name))]
 	#![cfg_attr(feature="dev", allow(similar_names))]
 
-	extern crate tempdir;
 	use std::path::Path;
 	use super::*;
 	use hashdb::{HashDB, DBValue};
@@ -462,7 +461,7 @@ mod tests {
 	use journaldb::JournalDB;
 	use kvdb::Database;
 	use {H32, Hashable};
-	use self::tempdir::TempDir;
+	use tempdir::TempDir;
 
 	fn new_db(path: &Path) -> OverlayRecentDB {
 		let backing = Arc::new(Database::open_default(path.to_str().unwrap()).unwrap());

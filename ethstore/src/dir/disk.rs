@@ -280,14 +280,12 @@ impl KeyFileManager for DiskKeyFileManager {
 
 #[cfg(test)]
 mod test {
-	extern crate tempdir;
-
 	use std::fs;
 	use super::RootDiskDirectory;
 	use dir::{KeyDirectory, VaultKey};
 	use account::SafeAccount;
 	use ethkey::{Random, Generator};
-	use self::tempdir::TempDir;
+	use tempdir::TempDir;
 
 	#[test]
 	fn should_create_new_account() {

@@ -92,13 +92,12 @@ pub fn new_metropolis_test() -> Spec { load(None, include_bytes!("../../res/ethe
 
 #[cfg(test)]
 mod tests {
-	extern crate tempdir;
 	use util::*;
 	use state::*;
 	use super::*;
 	use tests::helpers::*;
 	use views::BlockView;
-	use self::tempdir::TempDir;
+	use tempdir::TempDir;
 
 	#[test]
 	fn ensure_db_good() {

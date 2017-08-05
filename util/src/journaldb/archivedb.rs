@@ -198,14 +198,13 @@ mod tests {
 	#![cfg_attr(feature="dev", allow(blacklisted_name))]
 	#![cfg_attr(feature="dev", allow(similar_names))]
 
-	extern crate tempdir;
 	use std::path::Path;
 	use hashdb::{HashDB, DBValue};
 	use super::*;
 	use journaldb::traits::JournalDB;
 	use kvdb::Database;
 	use {Hashable, H32};
-	use self::tempdir::TempDir;
+	use tempdir::TempDir;
 
 	#[test]
 	fn insert_same_in_fork() {
