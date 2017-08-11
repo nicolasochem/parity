@@ -22,17 +22,18 @@ mod util;
 use ethstore::{EthStore, SimpleSecretStore, SecretVaultRef, StoreAccountRef};
 use ethstore::ethkey::{Random, Generator, Secret, KeyPair, verify_address};
 use ethstore::dir::RootDiskDirectory;
+use util::TransientDir;
 
 #[test]
 fn secret_store_create() {
-	let dir = TempDir::new("").unwrap();
+	let dir = TransientDir::create().unwrap();
 	let _ = EthStore::open(Box::new(dir)).unwrap();
 }
 
 #[test]
 #[should_panic]
 fn secret_store_open_not_existing() {
-	let dir = TempDir::new("").unwrap();
+	let dir = TransientDir::open();
 	let _ = EthStore::open(Box::new(dir)).unwrap();
 }
 
@@ -42,7 +43,7 @@ fn random_secret() -> Secret {
 
 #[test]
 fn secret_store_create_account() {
-	let dir = TempDir::new("").unwrap();
+	let dir = TransientDir::create().unwrap();
 	let store = EthStore::open(Box::new(dir)).unwrap();
 	assert_eq!(store.accounts().unwrap().len(), 0);
 	assert!(store.insert_account(SecretVaultRef::Root, random_secret(), "").is_ok());
@@ -53,7 +54,7 @@ fn secret_store_create_account() {
 
 #[test]
 fn secret_store_sign() {
-	let dir = TempDir::new("").unwrap();
+	let dir = TransientDir::create().unwrap();
 	let store = EthStore::open(Box::new(dir)).unwrap();
 	assert!(store.insert_account(SecretVaultRef::Root, random_secret(), "").is_ok());
 	let accounts = store.accounts().unwrap();
@@ -64,7 +65,7 @@ fn secret_store_sign() {
 
 #[test]
 fn secret_store_change_password() {
-	let dir = TempDir::new("").unwrap();
+	let dir = TransientDir::create().unwrap();
 	let store = EthStore::open(Box::new(dir)).unwrap();
 	assert!(store.insert_account(SecretVaultRef::Root, random_secret(), "").is_ok());
 	let accounts = store.accounts().unwrap();
@@ -77,7 +78,7 @@ fn secret_store_change_password() {
 
 #[test]
 fn secret_store_remove_account() {
-	let dir = TempDir::new("").unwrap();
+	let dir = TransientDir::create().unwrap();
 	let store = EthStore::open(Box::new(dir)).unwrap();
 	assert!(store.insert_account(SecretVaultRef::Root, random_secret(), "").is_ok());
 	let accounts = store.accounts().unwrap();
