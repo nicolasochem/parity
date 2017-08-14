@@ -22,7 +22,9 @@ mod util;
 use ethstore::{EthStore, SimpleSecretStore, SecretVaultRef, StoreAccountRef};
 use ethstore::ethkey::{Random, Generator, Secret, KeyPair, verify_address};
 use ethstore::dir::RootDiskDirectory;
+use std::fs;
 use util::TransientDir;
+use std::io::{self, Write};
 
 #[test]
 fn secret_store_create() {
@@ -33,7 +35,10 @@ fn secret_store_create() {
 #[test]
 #[should_panic]
 fn secret_store_open_not_existing() {
-	let dir = TransientDir::open();
+	let mut dir = TransientDir::open();
+	let dir_path = dir.temp_dir.into_path();
+	println!("{}", dir_path.display());
+	let dir = RootDiskDirectory::at(&dir_path);
 	let _ = EthStore::open(Box::new(dir)).unwrap();
 }
 
