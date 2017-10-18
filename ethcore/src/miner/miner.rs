@@ -170,18 +170,26 @@ impl GasPriceCalibrator {
 	fn recalibrate<F: Fn(U256) + Sync + Send + 'static>(&mut self, set_price: F) {
 		trace!(target: "miner", "Recalibrating {:?} versus {:?}", Instant::now(), self.next_calibration);
 		if Instant::now() >= self.next_calibration {
-			let usd_per_tx = self.options.usd_per_tx;
-			trace!(target: "miner", "Getting price info");
+			let wei_per_gas: u32 = 40000000;
 
-			self.price_info.get(move |price: PriceInfo| {
-				trace!(target: "miner", "Price info arrived: {:?}", price);
-				let usd_per_eth = price.ethusd;
-				let wei_per_usd: f32 = 1.0e18 / usd_per_eth;
-				let gas_per_tx: f32 = 21000.0;
-				let wei_per_gas: f32 = wei_per_usd * usd_per_tx / gas_per_tx;
-				info!(target: "miner", "Updated conversion rate to Ξ1 = {} ({} wei/gas)", Colour::White.bold().paint(format!("US${:.2}", usd_per_eth)), Colour::Yellow.bold().paint(format!("{}", wei_per_gas)));
-				set_price(U256::from(wei_per_gas as u64));
-			});
+			if wei_per_gas == 0 {
+				let usd_per_tx = self.options.usd_per_tx;
+				trace!(target: "miner", "Getting price info");
+
+				self.price_info.get(move |price: PriceInfo| {
+					trace!(target: "miner", "Price info arrived: {:?}", price);
+					let usd_per_eth = price.ethusd;
+					let wei_per_usd: f32 = 1.0e18 / usd_per_eth;
+					let gas_per_tx: f32 = 21000.0;
+					let wei_per_gas: f32 = wei_per_usd * usd_per_tx / gas_per_tx;
+					info!(target: "miner", "Updated conversion rate to Ξ1 = {} ({} wei/gas)", Colour::White.bold().paint(format!("US${:.2}", usd_per_eth)), Colour::Yellow.bold().paint(format!("{}", wei_per_gas)));
+				});
+			} else {
+				self.price_info.get(move |price: PriceInfo| {
+					info!(target: "miner", "Gas price preset to {} wei/gas",  Colour::White.bold().paint(format!("{}", wei_per_gas)));
+					set_price(U256::from(wei_per_gas as u64));
+				});
+			}
 
 			self.next_calibration = Instant::now() + self.options.recalibration_period;
 		}
